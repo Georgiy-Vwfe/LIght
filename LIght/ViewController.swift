@@ -10,22 +10,30 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var isLightOn = true
+    var i = 0
     @IBAction func buttonPressed(_ sender: Any) {
-        isLightOn = !isLightOn
-        updateView()
-    }
-    func updateView(){
-        if isLightOn {
-            view.backgroundColor = UIColor.white
+        i+=1
+        if i>3 {
+            i=0
         }
-        else
-        {
+            updateView()        
+    }
+    
+    func updateView(){
+        switch i {
+        case 1:
+            view.backgroundColor = UIColor.blue
+        case 2:
+            view.backgroundColor = UIColor.red
+        case 3:
+            view.backgroundColor = UIColor.green
+        default:
             view.backgroundColor = UIColor.black
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateView()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
